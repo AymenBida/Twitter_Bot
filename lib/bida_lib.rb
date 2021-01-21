@@ -11,3 +11,15 @@ end
 def line_return(n = 1)
   n.times { print "\n" }
 end
+
+def wait_for_user
+  gets.chomp
+end
+
+def animate(str, speed)
+  str.to_s
+  str.split('').each do |i|
+    print i
+    sleep(speed)
+  end
+end

@@ -31,7 +31,7 @@ class Config
   end
 
   def config_single_user
-    client = Twitter::REST::Client.new do |config|
+    @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = @app_usr
       config.consumer_secret     = @app_pass
       config.access_token        = @twit_user
