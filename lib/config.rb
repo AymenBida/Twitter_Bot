@@ -10,7 +10,7 @@ class Config
     api_secret: 'API secret key',
     access_token: 'Access token',
     access_secret: 'Access token secret'
-  }
+  }.freeze
 
   attr_accessor :client
 
@@ -32,15 +32,15 @@ class Config
 
   def config_single_user
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = @app_usr
-      config.consumer_secret     = @app_pass
-      config.access_token        = @twit_user
+      config.consumer_key = @app_usr
+      config.consumer_secret = @app_pass
+      config.access_token = @twit_user
       config.access_token_secret = @twit_pass
     end
   end
 
   def get_key(key)
     puts ask_for(key)
-    get_it
+    take_it
   end
 end

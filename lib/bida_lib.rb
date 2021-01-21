@@ -4,12 +4,12 @@ def clear
   system('clear')
 end
 
-def get_it
+def take_it
   gets.chomp.strip
 end
 
-def line_return(n = 1)
-  n.times { print "\n" }
+def line_return(num = 1)
+  num.times { print "\n" }
 end
 
 def wait_for_user

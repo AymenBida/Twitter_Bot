@@ -12,30 +12,30 @@ def ask_for(key)
 end
 
 def introduction
-  """This bot has two main functionalities: auto_tweet and tweet_now :
+  "This bot has two main functionalities: auto_tweet and tweet_now :
 
   - tweet_now :
   You get to write a tweet and it will be tweeted right away
 
   - auto_tweet :
-  You get to write a tweet and choose how many times you want it to be tweeted and at which interval"""
+  You get to write a tweet and choose how many times you want it to be tweeted and at which interval"
 end
 
 def enter_to_continue
-  "Press ENTER to continue "
+  'Press ENTER to continue '
 end
 
 def choose_mode
-  """Choose the bot functionality:
+  "Choose the bot functionality:
 
 [1] tweet_now
 [2] auto_tweet
 
-Write 1 or 2 and press ENTER:"""
+Write 1 or 2 and press ENTER:"
 end
 
 def type_message
-  "Type the message that you want to tweet right away:"
+  'Type the message that you want to tweet right away:'
 end
 
 def sure?
@@ -43,22 +43,22 @@ def sure?
 end
 
 def yes
-  ['yes', 'y']
+  %w[yes y]
 end
 
 def no
-  ['no', 'n']
+  %w[no n]
 end
 
 def your_tweet(tweet)
-  """Your tweet is going to be:
+  "Your tweet is going to be:
 
   - #{tweet}
 
 Do you want to confirm or to tweet something else ?
 
 [1] confirm
-[2] something else"""
+[2] something else"
 end
 
 def try_again
@@ -79,8 +79,8 @@ end
 
 # Errors next ------------------------------------------------------------------------
 
-def not_in_range(a, b)
-  "Please choose a number between #{a} and #{b}.".yellow
+def not_in_range(arg1, arg2)
+  "Please choose a number between #{arg1} and #{arg2}.".yellow
 end
 
 def no_message
