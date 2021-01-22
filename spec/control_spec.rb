@@ -11,11 +11,10 @@ describe Control do
   describe '#user_input_message' do
     context 'when @message is empty' do
       it 'changes @err to no_message' do
-        ctrl.message = 'dddddd'
-        p ctrl.message
         error_text = "Please don't leave it blank, write something ^^".bold.red
-        expect { ctrl.user_input_message }.to change { :@err }.to(error_text)
-        ctrl.user_input_message
+        @message = ''
+        p "this is message : #{@message}"
+        expect { ctrl.user_input_message }.to change { @err }.to(error_text)
       end
     end
   end
