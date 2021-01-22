@@ -1,5 +1,7 @@
 # This is my standard library where I can use methods in different projects
 
+require_relative '../lang/en.rb'
+
 def clear
   system('clear')
 end
@@ -16,6 +18,14 @@ def wait_for_user
   gets.chomp
 end
 
+def yes
+  %w[yes y]
+end
+
+def no
+  %w[no n]
+end
+
 def animate(str, speed)
   str.to_s
   str.split('').each do |i|
@@ -27,13 +37,18 @@ end
 def make_cardinal(num)
   case num
   when 1
-    res = "#{num}st"
+    "#{num}st"
   when 2
-    res = "#{num}nd"
+    "#{num}nd"
   when 3
-    res = "#{num}rd"
+    "#{num}rd"
   else
-    res = "#{num}th"
+    "#{num}th"
   end
-  res
+end
+
+def continue?
+  line_return
+  print enter_to_continue
+  wait_for_user
 end

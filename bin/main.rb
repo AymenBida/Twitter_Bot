@@ -4,33 +4,30 @@ require_relative '../lib/config.rb'
 require_relative '../lib/control.rb'
 require 'twitter'
 
+conf = Config.new
+ctrl = Control.new
+
 clear
 puts greeting
 line_return
-conf = Config.new
-ctrl = Control.new
-conf.init_single_user
-puts warning
-line_return
-print enter_to_continue
-wait_for_user
+conf.init_single_user # ask for keys to configure the bot
+puts warning # show warning about using wrong keys or not having the right permissions
+continue?
 
 clear
-puts introduction
-line_return
-print enter_to_continue
-wait_for_user
+puts introduction # explain what the bot does
+continue?
 
-ctrl.user_choose_mode
+ctrl.user_choose_mode # ask to choose the functionality
 
-ctrl.user_input_tweet
+ctrl.user_input_tweet # ask to input the tweet and confirm
 if ctrl.mode == 1
-  ctrl.tweet_now(conf.client)
+  ctrl.tweet_now(conf.client) # tweet !
 elsif ctrl.mode == 2
-  ctrl.user_input_times
-  ctrl.user_input_interval
+  ctrl.user_input_times # ask for how many times you need to tweet
+  ctrl.user_input_interval # ask for intervals beween tweets
   clear
-  ctrl.auto_tweet(conf.client)
+  ctrl.auto_tweet(conf.client) # engage in auto_tweeting !
 end
 
 sleep(1)

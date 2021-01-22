@@ -32,6 +32,8 @@ class Config
     config_single_user
   end
 
+  private
+
   def config_single_user
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = @app_usr
