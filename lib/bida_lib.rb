@@ -52,3 +52,7 @@ def continue?
   print enter_to_continue
   wait_for_user
 end
+
+def show_error?(err, text)
+  puts err if err == text
+end

@@ -18,14 +18,42 @@ clear
 puts introduction # explain what the bot does
 continue?
 
-ctrl.user_choose_mode # ask to choose the functionality
+loop do
+  clear
+  break if ctrl.user_choose_mode # ask to choose the functionality
+end
 
-ctrl.user_input_tweet # ask to input the tweet and confirm
+loop do
+  loop do
+    clear
+    break if ctrl.user_input_message # ask to input the tweet
+  end
+  loop do
+    clear
+    break if ctrl.user_confirm_message # confirm the tweet
+  end
+  break if ctrl.ans == 1 # ask to input the tweet and confirm
+
+  line_return
+  puts try_again
+  sleep(1)
+end
+
 if ctrl.mode == 1
   ctrl.tweet_now(conf.client) # tweet !
+  puts processing
+  animate('----------', 0.2)
+  line_return 2
+  puts success
 elsif ctrl.mode == 2
-  ctrl.user_input_times # ask for how many times you need to tweet
-  ctrl.user_input_interval # ask for intervals beween tweets
+  loop do
+    clear
+    break if ctrl.user_input_times # ask for how many times you need to tweet
+  end
+  loop do
+    clear
+    break if ctrl.user_input_interval # ask for intervals beween tweets
+  end
   clear
   ctrl.auto_tweet(conf.client) # engage in auto_tweeting !
 end

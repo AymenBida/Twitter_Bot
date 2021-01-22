@@ -13,87 +13,61 @@ class Control
     @interval = nil
   end
 
-  def user_input_tweet
-    loop do
-      user_input_message
-      break if user_confirm_message == 1
-
-      line_return
-      puts try_again
-      sleep(1)
-    end
-  end
-
   def user_input_message
-    loop do
-      clear
-      puts type_message
-      @err == no_message ? puts(@err) : line_return
-      print '  - '
-      @message = take_it
-      unless @message.empty?
-        @err = nil
-        break
-      end
-      @err = no_message
+    puts type_message
+    @err == no_message ? puts(@err) : line_return
+    print '  - '
+    @message = take_it
+    unless @message.empty?
+      @err = nil
+      return @message
     end
+    @err = no_message
+    false
   end
 
   def user_confirm_message
-    loop do
-      clear
-      puts your_tweet(@message)
-      puts @err if @err == not_in_range(1, 2)
-      @ans = take_it.to_i
-      break if @ans.between?(1, 2)
+    puts your_tweet(@message)
+    show_error?(@err, not_in_range(1, 2))
+    @ans = take_it.to_i
+    return @ans if @ans.between?(1, 2)
 
-      @err = not_in_range(1, 2)
-    end
-    @ans
+    @err = not_in_range(1, 2)
+    false
   end
 
   def user_choose_mode
-    loop do
-      clear
-      puts choose_mode
-      puts @err if @err == not_in_range(1, 2)
-      @mode = take_it.to_i
-      break if @mode.between?(1, 2)
+    puts choose_mode
+    show_error?(@err, not_in_range(1, 2))
+    @mode = take_it.to_i
+    return @mode if @mode.between?(1, 2)
 
-      @err = not_in_range(1, 2)
-    end
+    @err = not_in_range(1, 2)
+    false
   end
 
   def tweet_now(client)
     client.update(@message)
-    puts processing
-    animate('----------', 0.2)
-    line_return 2
-    puts success
   end
 
   def user_input_times
-    loop do
-      clear
-      puts how_many_times
-      puts @err if @err == not_in_range(2, 10)
-      @times = take_it.to_i
-      break if @times.between?(2, 10)
+    puts how_many_times
+    show_error?(@err, not_in_range(2, 10))
+    @times = take_it.to_i
+    return @times if @times.between?(2, 10)
 
-      @err = not_in_range(2, 10)
-    end
+    @err = not_in_range(2, 10)
+    false
   end
 
   def user_input_interval
-    loop do
-      clear
-      puts interval?
-      puts @err if @err == not_in_range(1, 30)
-      @interval = take_it.to_i
-      break if @interval.between?(1, 30)
+    puts interval?
+    show_error?(@err, not_in_range(1, 30))
+    @interval = take_it.to_i
+    return @interval if @interval.between?(1, 30)
 
-      @err = not_in_range(1, 30)
-    end
+    @err = not_in_range(1, 30)
+    false
   end
 
   def auto_tweet(client)
