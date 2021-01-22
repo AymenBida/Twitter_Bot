@@ -74,7 +74,24 @@ def success
 end
 
 def thank_you
-  'Thank you for your time'
+  puts '" Thank you for trying my Twitter Bot "'.bold.cyan
+  puts 'Aymen Bida'
+end
+
+def how_many_times
+  'How many times you want your tweet to show ? (between 2 and 10)'
+end
+
+def interval?
+  'How many minutes do you want between your tweets ? (between 1 and 30)'
+end
+
+def sending(num)
+  "Sending your #{make_cardinal(num)} tweet..."
+end
+
+def waiting_for_interval(num)
+  "Waiting for #{num} minutes before the next tweet.."
 end
 
 # Errors next ------------------------------------------------------------------------

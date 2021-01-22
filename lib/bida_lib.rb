@@ -23,3 +23,17 @@ def animate(str, speed)
     sleep(speed)
   end
 end
+
+def make_cardinal(num)
+  case num
+  when 1
+    res = "#{num}st"
+  when 2
+    res = "#{num}nd"
+  when 3
+    res = "#{num}rd"
+  else
+    res = "#{num}th"
+  end
+  res
+end
