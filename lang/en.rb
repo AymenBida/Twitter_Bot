@@ -4,11 +4,12 @@
 require 'colorize'
 
 def greeting
-  'Welcome to "Twitter Bot" by Aymen Bida'
+  "Welcome to \e[36m\e[1m\"Twitter Bot\"\e[22m\e[0m by Aymen Bida
+Before we proceed, please configure your bot by entering your API keys and Access Token keys:"
 end
 
 def ask_for(key)
-  "Please copy and paste your -#{key}- here and press ENTER:"
+  "Please copy and paste your -\e[33m\e[1m#{key}\e[22m\e[0m- here and press ENTER:"
 end
 
 def introduction
@@ -28,8 +29,8 @@ end
 def choose_mode
   "Choose the bot functionality:
 
-[1] tweet_now
-[2] auto_tweet
+\e[32m\e[1m[1]\e[22m\e[0m tweet_now
+\e[32m\e[1m[2]\e[22m\e[0m auto_tweet
 
 Write 1 or 2 and press ENTER:"
 end
@@ -57,8 +58,8 @@ def your_tweet(tweet)
 
 Do you want to confirm or to tweet something else ?
 
-[1] confirm
-[2] something else"
+\e[32m\e[1m[1]\e[22m\e[0m confirm
+\e[32m\e[1m[2]\e[22m\e[0m something else"
 end
 
 def try_again
@@ -94,12 +95,19 @@ def waiting_for_interval(num)
   "Waiting for #{num} minutes before the next tweet.."
 end
 
-# Errors next ------------------------------------------------------------------------
+# Warnings ---------------------------------------------------------------------------
+
+def warning
+  "\e[33m\e[1m[WARNING]\e[22m\e[0m If any of the following keys is incorrect the application will not work and it will crash
+\e[1m[NOTICE]\e[22m Your Access Token should have 'write' permissions for this bot to function"
+end
+
+# Errors -----------------------------------------------------------------------------
 
 def not_in_range(arg1, arg2)
-  "Please choose a number between #{arg1} and #{arg2}.".yellow
+  "Please choose a number between #{arg1} and #{arg2}.".bold.red
 end
 
 def no_message
-  "Please don't leave it blank, write something ^^".yellow
+  "Please don't leave it blank, write something ^^".bold.red
 end

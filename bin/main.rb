@@ -9,8 +9,13 @@ puts greeting
 line_return
 conf = Config.new
 ctrl = Control.new
-conf.auto_config
+conf.init_single_user
+puts warning
+line_return
+print enter_to_continue
+wait_for_user
 
+clear
 puts introduction
 line_return
 print enter_to_continue

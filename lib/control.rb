@@ -98,7 +98,7 @@ class Control
       break if i == @times - 1
       line_return
       puts waiting_for_interval(@interval)
-      sleep(@interval)
+      sleep(@interval.minutes)
       line_return
     end
   end

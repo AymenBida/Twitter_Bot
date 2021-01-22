@@ -25,8 +25,10 @@ class Config
   def init_single_user
     @app_usr = get_key(KEYS[:api_key])
     @app_pass = get_key(KEYS[:api_secret])
+    line_return
     @twit_user = get_key(KEYS[:access_token])
     @twit_pass = get_key(KEYS[:access_secret])
+    line_return
     config_single_user
   end
 
