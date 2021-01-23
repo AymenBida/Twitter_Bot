@@ -84,7 +84,7 @@ def sending(num)
 end
 
 def waiting_for_interval(num)
-  "Waiting for #{num} minutes before the next tweet.."
+  "Waiting for #{num} minute(s) before the next tweet.."
 end
 
 # Warnings ---------------------------------------------------------------------------

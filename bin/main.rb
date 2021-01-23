@@ -20,19 +20,37 @@ continue?
 
 loop do
   clear
-  break if ctrl.user_choose_mode # ask to choose the functionality
+  puts choose_mode # ask to choose the functionality
+  show_error?(ctrl.err, not_in_range(1, 2))
+  ctrl.mode = take_it.to_i
+  break if ctrl.mode.between?(1, 2)
+
+  ctrl.err = not_in_range(1, 2)
 end
 
 loop do
   loop do
     clear
-    break if ctrl.user_input_message # ask to input the tweet
+    puts type_message # ask to input the tweet
+    ctrl.err == no_message ? puts(ctrl.err) : line_return
+    print '  - '
+    ctrl.message = take_it
+    unless ctrl.message.empty?
+      ctrl.err = nil
+      break
+    end
+    ctrl.err = no_message
   end
   loop do
     clear
-    break if ctrl.user_confirm_message # confirm the tweet
+    puts your_tweet(ctrl.message) # confirm the tweet
+    show_error?(ctrl.err, not_in_range(1, 2))
+    ctrl.ans = take_it.to_i
+    break if ctrl.ans.between?(1, 2)
+
+    ctrl.err = not_in_range(1, 2)
   end
-  break if ctrl.ans == 1 # ask to input the tweet and confirm
+  break if ctrl.ans == 1
 
   line_return
   puts try_again
@@ -48,11 +66,21 @@ if ctrl.mode == 1
 elsif ctrl.mode == 2
   loop do
     clear
-    break if ctrl.user_input_times # ask for how many times you need to tweet
+    puts how_many_times # ask for how many times you need to tweet
+    show_error?(ctrl.err, not_in_range(2, 10))
+    ctrl.times = take_it.to_i
+    break if ctrl.times.between?(2, 10)
+
+    ctrl.err = not_in_range(2, 10)
   end
   loop do
     clear
-    break if ctrl.user_input_interval # ask for intervals beween tweets
+    puts interval? # ask for intervals beween tweets
+    show_error?(ctrl.err, not_in_range(1, 30))
+    ctrl.interval = take_it.to_i
+    break if ctrl.interval.between?(1, 30)
+
+    ctrl.err = not_in_range(1, 30)
   end
   clear
   ctrl.auto_tweet(conf.client) # engage in auto_tweeting !
