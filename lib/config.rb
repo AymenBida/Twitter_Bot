@@ -12,7 +12,7 @@ class Config
     access_secret: 'Access token secret'
   }.freeze
 
-  attr_accessor :client
+  attr_reader :client
 
   def initialize
     @app_usr = nil
