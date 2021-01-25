@@ -31,7 +31,7 @@ To get a local copy up and running follow these simple example steps in your ter
 - `cd Twitter_Bot`
 - `ruby bin/main.rb`
 
-Once you run you will be asked to enter your API keys and Access Token keys (provided by twitter developer account)
+Once you run you will be asked to enter your API keys and Access Token keys (provided by twitter developer account).
 You enter them, and then follow instructions to use the bot
 
 Required: your Access Token keys should be generated with 'write' permissions which are required for this bot to function
