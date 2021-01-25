@@ -47,7 +47,7 @@ def make_cardinal(num)
   end
 end
 
-def continue?
+def continue
   line_return
   print enter_to_continue
   wait_for_user
