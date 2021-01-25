@@ -12,11 +12,11 @@ puts greeting
 line_return
 conf.init_single_user # ask for keys to configure the bot
 puts warning # show warning about using wrong keys or not having the right permissions
-continue?
+continue
 
 clear
 puts introduction # explain what the bot does
-continue?
+continue
 
 loop do
   clear

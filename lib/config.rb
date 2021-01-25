@@ -1,9 +1,5 @@
 # This is the configuration file for the bot
 
-require_relative '../lang/en.rb'
-require_relative 'bida_lib.rb'
-require 'twitter'
-
 class Config
   KEYS = {
     api_key: 'API key',

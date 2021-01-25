@@ -1,7 +1,6 @@
 require_relative '../lib/control.rb'
 require_relative '../lib/config.rb'
 require 'twitter'
-require 'colorize'
 
 describe Control do
   subject(:ctrl) { described_class.new }

@@ -1,6 +1,3 @@
-require_relative '../lang/en.rb'
-require_relative 'bida_lib.rb'
-
 class Control
   attr_accessor :err, :message, :ans, :mode, :how_many, :interval
 

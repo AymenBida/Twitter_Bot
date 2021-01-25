@@ -1,6 +1,5 @@
 # This is my standard library where I can use methods in different projects
 
-require_relative '../lang/en.rb'
 
 def clear
   system('clear')
