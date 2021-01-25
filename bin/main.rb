@@ -31,7 +31,7 @@ end
 loop do
   loop do
     clear
-    puts type_message # ask to input the tweet
+    puts type_message
     ctrl.err == no_message ? puts(ctrl.err) : line_return
     print '  - '
     ctrl.message = take_it
@@ -43,7 +43,7 @@ loop do
   end
   loop do
     clear
-    puts your_tweet(ctrl.message) # confirm the tweet
+    puts your_tweet(ctrl.message)
     show_error?(ctrl.err, not_in_range(1, 2))
     ctrl.ans = take_it.to_i
     break if ctrl.ans.between?(1, 2)
@@ -58,7 +58,7 @@ loop do
 end
 
 if ctrl.mode == 1
-  ctrl.tweet_now(conf.client) # tweet !
+  ctrl.tweet_now(conf.client)
   puts processing
   animate('----------', 0.2)
   line_return 2
@@ -66,7 +66,7 @@ if ctrl.mode == 1
 elsif ctrl.mode == 2
   loop do
     clear
-    puts how_many_times # ask for how many times you need to tweet
+    puts how_many_times
     show_error?(ctrl.err, not_in_range(2, 10))
     ctrl.how_many = take_it.to_i
     break if ctrl.how_many.between?(2, 10)
@@ -75,7 +75,7 @@ elsif ctrl.mode == 2
   end
   loop do
     clear
-    puts interval? # ask for intervals beween tweets
+    puts interval?
     show_error?(ctrl.err, not_in_range(1, 30))
     ctrl.interval = take_it.to_i
     break if ctrl.interval.between?(1, 30)
@@ -84,7 +84,7 @@ elsif ctrl.mode == 2
   end
   clear
   ctrl.how_many.times do |i|
-    ctrl.auto_tweet(conf.client, i) # engage in auto_tweeting !
+    ctrl.auto_tweet(conf.client, i)
     puts sending(i + 1)
     animate('----------', 0.2)
     line_return
