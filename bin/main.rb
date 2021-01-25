@@ -68,8 +68,8 @@ elsif ctrl.mode == 2
     clear
     puts how_many_times # ask for how many times you need to tweet
     show_error?(ctrl.err, not_in_range(2, 10))
-    ctrl.times = take_it.to_i
-    break if ctrl.times.between?(2, 10)
+    ctrl.how_many = take_it.to_i
+    break if ctrl.how_many.between?(2, 10)
 
     ctrl.err = not_in_range(2, 10)
   end
@@ -83,7 +83,19 @@ elsif ctrl.mode == 2
     ctrl.err = not_in_range(1, 30)
   end
   clear
-  ctrl.auto_tweet(conf.client) # engage in auto_tweeting !
+  ctrl.how_many.times do |i|
+    ctrl.auto_tweet(conf.client, i) # engage in auto_tweeting !
+    puts sending(i + 1)
+    animate('----------', 0.2)
+    line_return
+    puts success
+    break if i == ctrl.how_many - 1
+
+    line_return
+    puts waiting_for_interval(ctrl.interval)
+    sleep(ctrl.interval * 60)
+    line_return
+  end
 end
 
 sleep(1)
