@@ -51,7 +51,9 @@ def your_tweet(tweet)
 Do you want to confirm or to tweet something else ?
 
 #{'[1]'.bold.green} confirm
-#{'[2]'.bold.green} something else"
+#{'[2]'.bold.green} something else
+
+Write 1 or 2 and press ENTER:"
 end
 
 def try_again
@@ -85,6 +87,15 @@ end
 
 def waiting_for_interval(num)
   "Waiting for #{num} minute(s) before the next tweet.."
+end
+
+def want_anything_else
+  "Do you want to do something else ?
+
+#{'[1]'.bold.green} yes!
+#{'[2]'.bold.green} no and exit
+
+Write 1 or 2 and press ENTER:"
 end
 
 # Warnings ---------------------------------------------------------------------------
