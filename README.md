@@ -38,11 +38,19 @@ You enter them, and then follow instructions to use the bot
 
 Required: your Access Token keys should be generated with 'write' permissions which are required for this bot to function
 
+## Testing
+
+To test you have to install the RSpec gem and run this command from the root folder:
+
+- `rspec`
+
 ## Author
 
 👤 **Aymen Bida**
 
 - GitHub: [@AymenBida](https://github.com/AymenBida)
+- Twitter: [@AymenBida](https://twitter.com/AymenBida)
+- LinkedIn: [AymenBida](https://www.linkedin.com/in/aymenbida/)
 
 ## 🤝 Contributing
 
