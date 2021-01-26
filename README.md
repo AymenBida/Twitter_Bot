@@ -4,6 +4,8 @@
 
 This is a twitter bot made with Ruby for the Microverse Capstone project of the Ruby module
 
+![screenshot](assets/screenshot.png)
+
 ## Instructions
 
 This bot has two main functionalities: `AUTO_TWEET` and `TWEET_NOW`
