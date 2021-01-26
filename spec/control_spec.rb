@@ -5,7 +5,7 @@ require 'twitter'
 describe Control do
   subject(:ctrl) { described_class.new }
   let(:conf) { Config.new }
-  
+
   describe '#initialize' do
     # No need to test this standard method
   end
