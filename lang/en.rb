@@ -9,7 +9,7 @@ Before we proceed, please configure your bot by entering your API keys and Acces
 end
 
 def ask_for(key)
-  "Please copy and paste your -#{key.bold.yellow}- here and press ENTER:"
+  puts "Please copy and paste your -#{key.bold.yellow}- here and press ENTER:"
 end
 
 def introduction
