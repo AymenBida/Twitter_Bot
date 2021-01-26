@@ -1,5 +1,5 @@
-require_relative '../lib/control.rb'
-require_relative '../lib/config.rb'
+require_relative '../lib/control'
+require_relative '../lib/config'
 require 'twitter'
 
 describe Control do

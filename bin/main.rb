@@ -1,9 +1,9 @@
 # rubocop:disable Metrics/BlockLength
 
-require_relative '../lib/bida_lib.rb'
-require_relative '../lang/en.rb'
-require_relative '../lib/config.rb'
-require_relative '../lib/control.rb'
+require_relative '../lib/bida_lib'
+require_relative '../lang/en'
+require_relative '../lib/config'
+require_relative '../lib/control'
 require 'twitter'
 
 conf = Config.new
@@ -60,13 +60,14 @@ loop do
     sleep(1)
   end
 
-  if ctrl.mode == 1
+  case ctrl.mode
+  when 1
     ctrl.tweet_now(conf.client)
     puts processing
     animate('----------', 0.2)
     line_return 2
     puts success
-  elsif ctrl.mode == 2
+  when 2
     loop do
       clear
       puts how_many_times

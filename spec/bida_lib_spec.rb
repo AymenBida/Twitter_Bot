@@ -1,4 +1,4 @@
-require_relative '../lib/bida_lib.rb'
+require_relative '../lib/bida_lib'
 
 describe '#line_return' do
   context 'when the method is called without arguments' do
