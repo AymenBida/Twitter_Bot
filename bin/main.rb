@@ -21,7 +21,7 @@ continue
 loop do
   clear
   puts choose_mode # ask to choose the functionality
-  show_error?(ctrl.err, not_in_range(1, 2))
+  show_error(ctrl.err, not_in_range(1, 2))
   ctrl.mode = take_it.to_i
   break if ctrl.mode.between?(1, 2)
 
@@ -44,7 +44,7 @@ loop do
   loop do
     clear
     puts your_tweet(ctrl.message)
-    show_error?(ctrl.err, not_in_range(1, 2))
+    show_error(ctrl.err, not_in_range(1, 2))
     ctrl.ans = take_it.to_i
     break if ctrl.ans.between?(1, 2)
 
@@ -67,7 +67,7 @@ elsif ctrl.mode == 2
   loop do
     clear
     puts how_many_times
-    show_error?(ctrl.err, not_in_range(2, 10))
+    show_error(ctrl.err, not_in_range(2, 10))
     ctrl.how_many = take_it.to_i
     break if ctrl.how_many.between?(2, 10)
 
@@ -76,7 +76,7 @@ elsif ctrl.mode == 2
   loop do
     clear
     puts interval?
-    show_error?(ctrl.err, not_in_range(1, 30))
+    show_error(ctrl.err, not_in_range(1, 30))
     ctrl.interval = take_it.to_i
     break if ctrl.interval.between?(1, 30)
 

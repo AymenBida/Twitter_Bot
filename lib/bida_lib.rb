@@ -1,5 +1,7 @@
 # This is my standard library where I can use methods in different projects
 
+YES = %w[yes y].freeze
+NO = %w[no n].freeze
 
 def clear
   system('clear')
@@ -15,14 +17,6 @@ end
 
 def wait_for_user
   gets.chomp
-end
-
-def yes
-  %w[yes y]
-end
-
-def no
-  %w[no n]
 end
 
 def animate(str, speed)
@@ -48,10 +42,10 @@ end
 
 def continue
   line_return
-  print enter_to_continue
+  print 'press ENTER to continue '
   wait_for_user
 end
 
-def show_error?(err, text)
+def show_error(err, text)
   puts err if err == text
 end
